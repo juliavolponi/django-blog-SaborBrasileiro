@@ -24,6 +24,9 @@ class Recipe(models.Model):
         if not self.slug:
             # Automatically generate the slug from the title
             self.slug = slugify(self.title)
+
+        if Recipe.objects.filter(slug=self.slug).exists():
+            self.slug=f"{self.slug}-{self.id}"
         super(Recipe, self).save(*args, **kwargs)
 
     def __str__(self):

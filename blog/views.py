@@ -60,8 +60,8 @@ def recipe_create(request):
 
 
 @login_required
-def recipe_update(request, pk):
-    recipe = get_object_or_404(Recipe, pk=pk)
+def recipe_update(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
     # Check if the current user is the author of the recipe
     if request.user != recipe.author:
         # If not the author, redirect to the recipe detail page
@@ -72,7 +72,7 @@ def recipe_update(request, pk):
         if form.is_valid():
             form.save()
             # Redirect to the recipe detail page after successful update
-            return redirect('recipe_detail', pk=recipe.pk)
+            return redirect('recipe_detail', slug=recipe.slug)
     else:
         form = RecipeForm(instance=recipe)
 
@@ -80,16 +80,16 @@ def recipe_update(request, pk):
 
 
 @login_required
-def recipe_delete(request, pk):
-    recipe = get_object_or_404(Recipe, pk=pk)
+def recipe_delete(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
 
     # ensure only the author of recipe can delete it
     if request.user != recipe.author:
-        return redirect('recipe_list')
+        return redirect('index.html')
     
     if request.method == 'POST':
         recipe.delete()
-        return redirect('recipe_list')
+        return redirect('index.html')
     
     return render(request, 'blog/recipe_confirm_delete.html', {'recipe': recipe})
 

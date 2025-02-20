@@ -9,6 +9,18 @@
                 <h1 class="post-title">{{ recipe.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+
+                <!-- Add Edit button here -->
+                {% if recipe.author == user %}
+                <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-warning">Edit</a>
+                {% endif %}
+
+                <!-- Delete button -->
+            <form action="{% url 'recipe_delete' recipe.slug %}" method="post" style="display:inline;">
+               {% csrf_token %}
+               <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
