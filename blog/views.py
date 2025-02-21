@@ -4,6 +4,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views import generic
+from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from .models import Recipe
 from .forms import RecipeForm
 
@@ -12,10 +15,20 @@ from .forms import RecipeForm
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.all()
     template_name = "blog/index.html"
-    paginate_by= 6
-    
-    
+    paginate_by = 6
 
+
+
+class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):  
+    model = Recipe
+    template_name = "blog/recipe_confirm_delete.html"
+    success_url = reverse_lazy("recipe_list")
+
+    def test_func(self):
+        """Ensure only the author can delete the recipe"""
+        recipe = self.get_object()
+        return self.request.user == recipe.author 
+    
 
 
 
@@ -78,20 +91,6 @@ def recipe_update(request, slug):
 
     return render(request, 'blog/recipe_form.html', {'form': form})
 
-
-@login_required
-def recipe_delete(request, slug):
-    recipe = get_object_or_404(Recipe, slug=slug)
-
-    # ensure only the author of recipe can delete it
-    if request.user != recipe.author:
-        return redirect('index.html')
-    
-    if request.method == 'POST':
-        recipe.delete()
-        return redirect('index.html')
-    
-    return render(request, 'blog/recipe_confirm_delete.html', {'recipe': recipe})
 
 # user authentication
 

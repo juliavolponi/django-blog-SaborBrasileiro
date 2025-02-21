@@ -16,10 +16,9 @@
                 {% endif %}
 
                 <!-- Delete button -->
-            <form action="{% url 'recipe_delete' recipe.slug %}" method="post" style="display:inline;">
-               {% csrf_token %}
-               <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+                {% if user.is_authenticated and user == recipe.author %}
+                <a href="{% url 'recipe_delete' recipe.slug %}" class="btn btn-danger">Delete</a>
+                {% endif %}
 
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
