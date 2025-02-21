@@ -45,7 +45,6 @@ body {
 }
 
 .card-body {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -62,12 +61,6 @@ body {
     height: auto;
 }
 
-.author {
-    color: #fff;
-    margin: 4px;
-    text-transform: uppercase;
-    font-size: small;
-}
 
 .masthead {
     margin-top: 10px;
@@ -110,16 +103,12 @@ body {
 }
 
 .btn-signup,
-.btn-edit {
+.btn-edit,
+.btn-delete {
     background-color: #188181;
     color: #fff;
 }
 
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #188181;
-    color: #fff;
-}
 
 .link {
     color: #FFFF33;
@@ -132,23 +121,7 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
 
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
 
 .faded {
     color: rgb(172, 175, 175);
@@ -179,13 +152,22 @@ form select {
 }
 
 .btn {
-    background-color: #FFFF33 !important;  /* Custom button color */
-    color: black !important;
+    background-color: #1a7341 !important;  /* Custom button color */
+    color: white !important;
     border: none;
-    padding: 10px 20px;
+    padding: 6px 12px;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.btn:hover {
+    background-color: #1B4D3E !important;  /* Slightly lighter green on hover */
 }
 
 h2 {
@@ -194,9 +176,15 @@ h2 {
 
 .author {
     color: #fff;
-    margin-top: 10px; 
-    text-transform: uppercase;
-    font-size: small;
+    margin: 4px 0;
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+}
+
+.recipe-subtitle{
+    margin-left: 5%;
+    color: lightgray;
 }
 
 .col-md-4, .col-sm-6 {
