@@ -11,9 +11,10 @@
                 <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
 
                 <!-- Add Edit button here -->
-                {% if recipe.author == user %}
-                <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-warning">Edit</a>
+                {% if user.is_authenticated and user == recipe.author %}
+                    <a href="{% url 'recipe_update' recipe.slug %}" class="btn btn-warning">Update</a>
                 {% endif %}
+
 
                 <!-- Delete button -->
                 {% if user.is_authenticated and user == recipe.author %}

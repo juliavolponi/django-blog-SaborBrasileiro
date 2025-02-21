@@ -4,7 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views import generic
-from django.views.generic import DeleteView
+from django.views.generic import DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Recipe
@@ -28,6 +28,18 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         """Ensure only the author can delete the recipe"""
         recipe = self.get_object()
         return self.request.user == recipe.author 
+
+
+class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Recipe 
+    fields = ['title', 'ingredients', 'instructions', 'categories']
+    template_name = 'blog/recipe_form.html'
+    success_url = reverse_lazy('recipe_list')
+
+    def test_func(self):
+        """Ensure only the author can update the recipe"""
+        recipe = self.get_object()
+        return self.request.user == recipe.author
     
 
 
