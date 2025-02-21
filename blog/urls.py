@@ -4,6 +4,7 @@ from .views import RecipeDeleteView, RecipeUpdateView
 
 
 
+
 urlpatterns = [
     path('', views.RecipeList.as_view(), name='recipe_list'),  # Home page for listing recipes
     path('recipe/<slug:slug>/', views.recipe_detail, name='recipe_detail'),  # Detail page for a single recipe

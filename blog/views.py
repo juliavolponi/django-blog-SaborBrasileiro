@@ -70,41 +70,19 @@ def recipe_detail(request, slug):
 @login_required
 def recipe_create(request):
     if request.method == 'POST':
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.author = request.user  # author logged-in user
             recipe.save()
             # Redirect the user to the recipe detail view of the created recipe
-            return redirect('recipe_list')
+            return redirect('recipe_detail', slug=recipe.slug)
     else:
         # If the request method is not POST, create an empty form
         form = RecipeForm()
         # renders the template for the recipe creation form so it can be displayed for user
     return render(request, 'blog/recipe_form.html', {'form': form})
 
-
-@login_required
-def recipe_update(request, slug):
-    recipe = get_object_or_404(Recipe, slug=slug)
-    # Check if the current user is the author of the recipe
-    if request.user != recipe.author:
-        # If not the author, redirect to the recipe detail page
-        return redirect('recipe_list')
-
-    if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
-        if form.is_valid():
-            form.save()
-            # Redirect to the recipe detail page after successful update
-            return redirect('recipe_detail', slug=recipe.slug)
-    else:
-        form = RecipeForm(instance=recipe)
-
-    return render(request, 'blog/recipe_form.html', {'form': form})
-
-
-# user authentication
 
 def signup_view(request):
     if request.method == 'POST':

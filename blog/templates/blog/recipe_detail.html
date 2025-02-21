@@ -7,8 +7,11 @@
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ recipe.title }}</h1>
+
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+                <p>Author: {{ recipe.author }}</p>
+                <p>{{ recipe.created_at|date:"F j, Y" }}</p>
+
 
                 <!-- Add Edit button here -->
                 {% if user.is_authenticated and user == recipe.author %}

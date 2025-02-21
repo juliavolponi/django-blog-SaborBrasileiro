@@ -19,6 +19,7 @@ class Recipe(models.Model):
     categories = models.ManyToManyField(Category, related_name="recipes")  # Many-to-Many relationship
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='recipes/')
 
     def save(self, *args, **kwargs):
         if not self.slug:
