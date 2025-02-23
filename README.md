@@ -51,40 +51,36 @@
 
 ---
 
-## Design
-
-### Wireframes and Mockups
-
 Here are some design visuals that represent the layout and structure of the **Sabor Brasileiro** blog:
 
 - **Homepage/Recipe List**  
-  ![Homepage](static/images/design.png)  
+  ![Homepage](static/images/main.png)  
   *This is the homepage where all recipes are listed, users can browse and view the recipe details.*
 
 - **Recipe Detail Page**  
-  ![Recipe Detail](static/images/recipe_detail.png)  
+  ![Recipe Detail](static/images/detail.png)  
   *A single recipe page displaying ingredients, instructions, and author details.*
 
 - **Create/Update Recipe Form**  
-  ![Create Recipe Form](static/images/create_update_form.png)  
+  ![Create Recipe Form](static/images/create.png)  
   *A form for adding and updating recipes with fields for title, ingredients, and instructions.*
 
 ### Color Scheme
 
 The color palette of **Sabor Brasileiro** is inspired by the **Brazilian flag**. The key colors include:
 
-- **Green**: #4CAF50 (for buttons, icons, and headings)
-- **Yellow**: #FCD116 (used for hover effects and important accents)
-- **White**: #FFFFFF (background and footer)
-- **Dark Gray**: #333333 (text and secondary background)
+- **Green**: #1B4D3E (for hover effects, background)
+- **Yellow**: ##FFFF33(used for hover effects, titles)
+- **White**: #FFF (footer, paragraphs)
 - **Light Gray**: #F5F5F5 (used for secondary backgrounds)
 
 ### Typography
 
 The font choices were made to ensure readability and simplicity:
 
-- **Primary Font**: `Arial, sans-serif` (for body text)
-- **Secondary Font**: `Roboto, sans-serif` (for headers and buttons)
+- **Primary Font**: `Lato, sans-serif` (for head title)
+
+- **Secondary Font**: `Montserrat, sans-serif` (for body)
 
 ---
 
@@ -132,7 +128,7 @@ I would like to express my deepest gratitude to **Code Institute** for providing
 
 A special thank you to the **Code Institute Support Team** for their incredible support during challenging times. Their unwavering encouragement and understanding gave me the strength to keep pushing forward. The ability to lean on their support truly helped me stay on track.
 
-I would also like to extend a huge thanks to my **mentor** for always providing invaluable guidance. From helping me brainstorm ideas for this project to breaking down how to approach each step.
+I would also like to extend a huge thanks to my **mentor** Precious for always providing guidance. From helping me brainstorm ideas for this project to breaking down how to approach each step.
 
 This project would not have been possible without the support of everyone involved. Thank you for believing in me and for giving me the tools and confidence to succeed.
 
