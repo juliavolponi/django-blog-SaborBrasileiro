@@ -269,3 +269,52 @@ h2 {
 .custom-title {
     color: #FFFF33;
 }
+
+/* Footer background */
+.main-bg {
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text color */
+}
+
+/* Green text for the title */
+.text-green {
+    color: #4CAF50; /* Brazil's green color */
+}
+
+/* Social media icon color */
+.social-icon {
+    color: #4CAF50; /* Green for icons */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for social media icons */
+.social-icon:hover {
+    color: #fcd116; /* Brazil's yellow color on hover */
+}
+
+/* Adjust the text size for better balance */
+footer .text-muted {
+    font-size: 1.1rem; /* Slightly larger text for description */
+}
+
+footer .text-dark {
+    font-size: 1rem; /* Normal text for "Follow us" */
+}
+
+/* Ensure footer stays at the bottom of the page */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+.main-content {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
