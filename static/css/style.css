@@ -253,3 +253,19 @@ h2 {
     height: 200px;
     object-fit: cover; 
 }
+
+.confirm-text{
+    color: #fff;
+}
+
+.delete-title {
+    color:#FFFF33;
+}
+
+.update-button {
+    margin-bottom: 20px;
+}
+
+.custom-title {
+    color: #FFFF33;
+}

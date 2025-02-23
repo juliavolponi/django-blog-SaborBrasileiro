@@ -33,7 +33,7 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Recipe 
     fields = ['title', 'ingredients', 'instructions', 'categories']
-    template_name = 'blog/recipe_form.html'
+    template_name = 'blog/recipe_update.html'
     success_url = reverse_lazy('recipe_list')
 
     def test_func(self):
