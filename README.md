@@ -2,8 +2,8 @@
 
 ### A Django-based web application for sharing and discovering authentic Brazilian recipes.
 
-**Sabor Brasileiro**
-  [Website](https://django-blog-saborbrasileiro-020999f88ab7.herokuapp.com/)
+**Sabor Brasileiro**  
+[Website](https://django-blog-saborbrasileiro-020999f88ab7.herokuapp.com/)
 
 ---
 
@@ -22,7 +22,9 @@
 
 ## Project Overview
 
-**Sabor Brasileiro** is a blog-style web application built using Django, designed for Brazilian food enthusiasts. Users can sign up, log in, and create, update and delete their own recipes. Visitors can explore a variety of recipes that showcase Brazilian cuisine, including ingredients and step-by-step cooking instructions.
+**Sabor Brasileiro** is a blog-style web application built using Django, designed for Brazilian food enthusiasts. Users can sign up, log in, and create, update, and delete their own recipes. Visitors can explore a variety of recipes that showcase Brazilian cuisine, including ingredients and step-by-step cooking instructions.
+
+---
 
 ## Features
 
@@ -35,7 +37,7 @@
 - **Recipe Categories**: Recipes are organized into categories for easy navigation.
 - **Responsive Design**: The website is fully responsive, providing a seamless experience on all devices.
 - **Slugs for SEO**: Recipes are accessible via user-friendly URLs based on the title (slugified).
-  
+
 ---
 
 ## Technologies Used
@@ -53,10 +55,36 @@
 
 ### Wireframes and Mockups
 
-Here is the design that represent the layout and structure of the **Sabor Brasileiro** blog:
+Here are some design visuals that represent the layout and structure of the **Sabor Brasileiro** blog:
 
- **Homepage/Recipe List**
-   ![Homepage](static/images/design.png)
+- **Homepage/Recipe List**  
+  ![Homepage](static/images/design.png)  
+  *This is the homepage where all recipes are listed, users can browse and view the recipe details.*
+
+- **Recipe Detail Page**  
+  ![Recipe Detail](static/images/recipe_detail.png)  
+  *A single recipe page displaying ingredients, instructions, and author details.*
+
+- **Create/Update Recipe Form**  
+  ![Create Recipe Form](static/images/create_update_form.png)  
+  *A form for adding and updating recipes with fields for title, ingredients, and instructions.*
+
+### Color Scheme
+
+The color palette of **Sabor Brasileiro** is inspired by the **Brazilian flag**. The key colors include:
+
+- **Green**: #4CAF50 (for buttons, icons, and headings)
+- **Yellow**: #FCD116 (used for hover effects and important accents)
+- **White**: #FFFFFF (background and footer)
+- **Dark Gray**: #333333 (text and secondary background)
+- **Light Gray**: #F5F5F5 (used for secondary backgrounds)
+
+### Typography
+
+The font choices were made to ensure readability and simplicity:
+
+- **Primary Font**: `Arial, sans-serif` (for body text)
+- **Secondary Font**: `Roboto, sans-serif` (for headers and buttons)
 
 ---
 
@@ -84,17 +112,19 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy, please 
 
 2. In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
 
-3. Now it's time to enter an application name that needs to be unique. When you have chose the name, choose your region and click 'Create app".
+3. Now it's time to enter an application name that needs to be unique. When you have chosen the name, choose your region and click 'Create app".
 
-4. On the next page, click the 'Settings' tab and find the "Config Vars" section. Click "Reveal Config Vars". Now it's time to add values. In the 'WOM Record Collection' case I needed to add two values. The first one was the credentials (KEY input field = "CREDS", VALUE input field = "your credentials", click the 'Add' button. Next you need to add another key, enter "PORT" in the KEY input field and "8000" in the VALUE field), click the 'Add' button.
+4. On the next page, click the 'Settings' tab and find the "Config Vars" section. Click "Reveal Config Vars". Now it's time to add values. In the 'WOM Record Collection' case, I needed to add two values. The first one was the credentials (KEY input field = "CREDS", VALUE input field = "your credentials", click the 'Add' button). Next, you need to add another key, enter "PORT" in the KEY input field and "8000" in the VALUE field. Then click the 'Add' button.
 
 5. Scroll down to the buildpacks section on the settings page and click the button 'Add buildpack'.
 
 6. Add "Python" and node.js". It is important that Python is listed above node.js.
 
-7. Scroll to the top of the settings page and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+7. Scroll to the top of the settings page and click the 'Deploy' tab. For the deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
 
-8. Scroll down on the deploy page and choose deployment type. Choose to enable automatic deployments if you want to and then  click 'Deploy Branch'.
+8. Scroll down on the deploy page and choose the deployment type. Choose to enable automatic deployments if you want to and then click 'Deploy Branch'.
+
+---
 
 ## Credits
 
@@ -105,5 +135,7 @@ A special thank you to the **Code Institute Support Team** for their incredible 
 I would also like to extend a huge thanks to my **mentor** for always providing invaluable guidance. From helping me brainstorm ideas for this project to breaking down how to approach each step.
 
 This project would not have been possible without the support of everyone involved. Thank you for believing in me and for giving me the tools and confidence to succeed.
+
+---
 
 

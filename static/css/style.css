@@ -41,7 +41,7 @@ body {
 }
 
 .card-title {
-    color: #FFFF33;
+    color: #FFFF33 !important;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: left;
@@ -270,6 +270,10 @@ h2 {
     color: #FFFF33;
 }
 
+.btn-primary {
+    margin: 20px;
+}
+
 /* Footer background */
 .main-bg {
     background-color: #ffffff; /* White background */
@@ -278,12 +282,12 @@ h2 {
 
 /* Green text for the title */
 .text-green {
-    color: #4CAF50; /* Brazil's green color */
+    color:#249856 ;
 }
 
 /* Social media icon color */
 .social-icon {
-    color: #4CAF50; /* Green for icons */
+    color: #249856;
     transition: color 0.3s ease;
 }
 
