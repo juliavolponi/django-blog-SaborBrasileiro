@@ -31,23 +31,49 @@ body {
 }
 
 .card {
-    border: none;
     background-color: transparent;
-    height: 100%;
+    border: none;
+ 
 }
 
 .card-text {
-    color: #dbd6d6;
+    color: #fff;
 }
 
 .card-title {
-    color: 	#FFFF33;
+    color: #FFFF33;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.8rem;
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+   background-color: transparent;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;  
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cold-md-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.col-md-6 .card-body {
+    padding-right: 30px; /* Push everything slightly to the right */
 }
 
 .image-container {
@@ -62,12 +88,6 @@ body {
     height: auto;
 }
 
-.author {
-    color: #fff;
-    margin: 4px;
-    text-transform: uppercase;
-    font-size: small;
-}
 
 .masthead {
     margin-top: 10px;
@@ -79,13 +99,20 @@ body {
 }
 
 .masthead-text {
-    color: white;
+    color: lightgray;
     position: relative;
 }
 
 .masthead-image {
     position: relative;
     overflow: hidden;
+    height: 50vh;
+}
+
+.masthead-image img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 
@@ -94,14 +121,24 @@ body {
     color: #fff
 }
 
+.recipe-detail-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering content */
+    text-align: center;
+    margin-bottom: 20px; /* Adds space below */
+}
+
+
 .recipe-link:hover,
 .page-link {
     color: #FFC72C;
 }
 
 .recipe-title {
-    margin-top: 10%;
-    margin-left: 5%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFFF33;
 }
 
 .recipe-subtitle {
@@ -109,17 +146,21 @@ body {
     color: lightgray;
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
+.recipe-meta {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    gap: 15px; /* Adds space between author & date */
+    font-size: 1rem;
+    color: #ccc;
 }
 
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #188181;
-    color: #fff;
+.recipe-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
 }
+
 
 .link {
     color: #FFFF33;
@@ -132,31 +173,12 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
 
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
 
 .faded {
     color: rgb(172, 175, 175);
 }
 
-.approval {
-    color: rgb(222, 146, 168);
-}
 
 .navbar .nav-link,
 .navbar .navbar-brand {
@@ -179,13 +201,22 @@ form select {
 }
 
 .btn {
-    background-color: #FFFF33 !important;  /* Custom button color */
-    color: black !important;
+    background-color: #1a7341 !important;  /* Custom button color */
+    color: white !important;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #1B4D3E !important;  /* Slightly lighter green on hover */
 }
 
 h2 {
@@ -193,10 +224,24 @@ h2 {
 }
 
 .author {
-    color: #fff;
-    margin-top: 10px; 
-    text-transform: uppercase;
-    font-size: small;
+    color: rgb(219, 213, 213);
+    margin: 4px 0;
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+}
+
+.author,
+.recipe-subtitle {
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.recipe-subtitle{
+    margin-left: 5%;
+    color: lightgray;
 }
 
 .col-md-4, .col-sm-6 {
