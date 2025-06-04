@@ -29,6 +29,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+
+DEBUG = os.environ.get('DEBUG', '') != 'False'
+
 ALLOWED_HOSTS = [
     'django-blog-SaborBrasileiro.herokuapp.com',
     '.herokuapp.com',
@@ -53,7 +56,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
-    'blog'
+    'blog',
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 SITE_ID = 1
@@ -96,12 +101,9 @@ WSGI_APPLICATION = 'sabor_brasileiro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -159,3 +161,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('daetth2q9'),
+    'API_KEY': os.environ.get('732137331796321'),
+    'API_SECRET': os.environ.get('F8tvcoXZhpPJOGhe3fvn0QauKvU'),
+}

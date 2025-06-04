@@ -6,3 +6,6 @@ os.environ["DATABASE_URL"] = (
     "ep-restless-band-a2qjwsip.eu-central-1.aws.neon.tech/"
     "poet_rival_keg_856761"
 )
+os.environ["CLOUDINARY_CLOUD_NAME"] = "daetth2q9"
+os.environ["CLOUDINARY_API_KEY"] = "732137331796321"
+os.environ["CLOUDINARY_API_SECRET"] = "F8tvcoXZhpPJOGhe3fvn0QauKvU"

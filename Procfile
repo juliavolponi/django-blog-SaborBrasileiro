@@ -1,1 +1,1 @@
-web: gunicorn sabor_brasileiro.wsgi
+web: gunicorn sabor_brasileiro.wsgi --log-file -
