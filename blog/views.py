@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
@@ -24,6 +25,11 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "blog/recipe_confirm_delete.html"
     success_url = reverse_lazy("recipe_list")
 
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Recipe deleted successfully!')
+        return super().delete(request, *args, **kwargs)
+
+
     def test_func(self):
         """Ensure only the author can delete the recipe"""
         recipe = self.get_object()
@@ -35,6 +41,11 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ['title', 'ingredients', 'instructions', 'categories']
     template_name = 'blog/recipe_update.html'
     success_url = reverse_lazy('recipe_list')
+
+    def form_valid(self, form):
+        from django.contrib import messages
+        messages.success(self.request, 'Recipe updated successfully!')
+        return super().form_valid(form)
 
     def test_func(self):
         """Ensure only the author can update the recipe"""
@@ -75,8 +86,11 @@ def recipe_create(request):
             recipe = form.save(commit=False)
             recipe.author = request.user  # author logged-in user
             recipe.save()
+            messages.success(request, 'Recipe created successfully!')
             # Redirect the user to the recipe detail view of the created recipe
             return redirect('recipe_detail', slug=recipe.slug)
+        else:
+            messages.error(request, 'Error creating recipe. Please check the form.')
     else:
         # If the request method is not POST, create an empty form
         form = RecipeForm()
