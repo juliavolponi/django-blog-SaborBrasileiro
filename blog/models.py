@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Category(models.Model):
@@ -19,7 +20,7 @@ class Recipe(models.Model):
     categories = models.ManyToManyField(Category, related_name="recipes")  # Many-to-Many relationship
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='recipes/')
+    image = CloudinaryField('image')
 
     def save(self, *args, **kwargs):
         if not self.slug:
