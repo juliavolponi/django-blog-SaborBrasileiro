@@ -14,6 +14,7 @@
 - [Technologies Used](#technologies-used)
 - [Design](#design)
 - [User Stories](#user-stories)
+- [Testing](#testing)
 - [Known Issues](#known-issues)
 - [Deployment To Heroku](#deployment-to-heroku)
 - [Credits](#credits)
@@ -51,6 +52,8 @@
 
 ---
 
+## Design
+
 Here are some design visuals that represent the layout and structure of the **Sabor Brasileiro** blog:
 
 - **Homepage/Recipe List**  
@@ -70,7 +73,7 @@ Here are some design visuals that represent the layout and structure of the **Sa
 The color palette of **Sabor Brasileiro** is inspired by the **Brazilian flag**. The key colors include:
 
 - **Green**: #1B4D3E (for hover effects, background)
-- **Yellow**: ##FFFF33(used for hover effects, titles)
+- **Yellow**: #FFFF33 (used for hover effects, titles)
 - **White**: #FFF (footer, paragraphs)
 - **Light Gray**: #F5F5F5 (used for secondary backgrounds)
 
@@ -79,7 +82,6 @@ The color palette of **Sabor Brasileiro** is inspired by the **Brazilian flag**.
 The font choices were made to ensure readability and simplicity:
 
 - **Primary Font**: `Lato, sans-serif` (for head title)
-
 - **Secondary Font**: `Montserrat, sans-serif` (for body)
 
 ---
@@ -90,6 +92,43 @@ The font choices were made to ensure readability and simplicity:
 2. **As a registered user**, I want to log in so I can manage my recipes.
 3. **As a logged-in user**, I want to create a new recipe so I can share my favorite Brazilian dish.
 4. **As a user**, I want to edit or delete my own recipes so I can manage them efficiently.
+
+---
+
+## ✅ Testing
+
+### Manual Testing Table
+
+| Feature                   | Test Description                           | Expected Result                    | Actual Result | Pass/Fail |
+|---------------------------|--------------------------------------------|------------------------------------|----------------|-----------|
+| User Registration         | Register new user with valid credentials   | User account created               | Success        | ✅ Pass   |
+| User Login                | Log in with correct credentials            | Redirect to homepage               | Success        | ✅ Pass   |
+| Invalid Login             | Try logging in with wrong password         | Error message shown                | Error shown    | ✅ Pass   |
+| Recipe Creation           | Add new recipe as logged-in user           | Recipe appears on homepage         | Success        | ✅ Pass   |
+| Recipe Update             | Edit an existing recipe                    | Changes are saved and displayed    | Success        | ✅ Pass   |
+| Recipe Deletion           | Delete a recipe                            | Recipe no longer listed            | Success        | ✅ Pass   |
+| Image Upload              | Add image when creating a recipe           | Image displayed properly           | Success        | ✅ Pass   |
+| 404 Page                  | Visit non-existent page                    | Custom 404 page is shown           | Success        | ✅ Pass   |
+| Responsive Design         | Check mobile/tablet layout                 | Layout adjusts cleanly             | Success        | ✅ Pass   |
+
+### Screenshots
+
+#### 📝 Registration Test  
+![Registration Screenshot](static/images/registrationtest.png)
+
+#### 🖼 Recipe Detail View  
+![Detail Page Screenshot](static/images/recipedetail.png)
+
+#### 🧾 Recipe Form Submission  
+![Create Form Screenshot](static/images/createtest.png)
+
+### Validation Tools
+
+- **HTML/CSS** validated using [W3C Validator](https://validator.w3.org/)
+- **Python** linted using `flake8`  
+  Run:  
+  ```bash
+  flake8 blog/views.py
 
 ---
 
@@ -104,34 +143,27 @@ The font choices were made to ensure readability and simplicity:
 
 The project was deployed to [Heroku](https://www.heroku.com). To deploy, please follow the process below:
 
-1. The first step is to log in to Heroku (or create an account if needed).
-
-2. In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
-
-3. Now it's time to enter an application name that needs to be unique. When you have chosen the name, choose your region and click 'Create app".
-
-4. On the next page, click the 'Settings' tab and find the "Config Vars" section. Click "Reveal Config Vars". Now it's time to add values. In the 'WOM Record Collection' case, I needed to add two values. The first one was the credentials (KEY input field = "CREDS", VALUE input field = "your credentials", click the 'Add' button). Next, you need to add another key, enter "PORT" in the KEY input field and "8000" in the VALUE field. Then click the 'Add' button.
-
-5. Scroll down to the buildpacks section on the settings page and click the button 'Add buildpack'.
-
-6. Add "Python" and node.js". It is important that Python is listed above node.js.
-
-7. Scroll to the top of the settings page and click the 'Deploy' tab. For the deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
-
-8. Scroll down on the deploy page and choose the deployment type. Choose to enable automatic deployments if you want to and then click 'Deploy Branch'.
+1. Log in to Heroku or create an account.
+2. Click "New" → "Create new app".
+3. Enter a unique app name, choose a region, click "Create app".
+4. In the "Settings" tab, reveal "Config Vars" and add necessary keys and values.
+5. Add Buildpacks: Python (first), Node.js (second).
+6. In the "Deploy" tab, connect your GitHub repo.
+7. Click "Deploy Branch".
 
 ---
 
 ## Credits
 
-I would like to express my deepest gratitude to **Code Institute** for providing such a comprehensive and well-structured Full Stack Developer course. The modules were incredibly detailed and easy to follow, ensuring that every concept was explained thoroughly, which helped me build confidence and gain a deep understanding.
+I would like to express my deepest gratitude to **Code Institute** for providing such a comprehensive and well-structured Full Stack Developer course.
 
-A special thank you to the **Code Institute Support Team** for their incredible support during challenging times. Their unwavering encouragement and understanding gave me the strength to keep pushing forward. The ability to lean on their support truly helped me stay on track.
+A special thank you to the **Code Institute Support Team** for their incredible support during challenging times.
 
-I would also like to extend a huge thanks to my **mentor** Precious for always providing guidance. From helping me brainstorm ideas for this project to breaking down how to approach each step.
+I would also like to extend a huge thanks to my **mentor** Precious for always providing guidance.
 
 This project would not have been possible without the support of everyone involved. Thank you for believing in me and for giving me the tools and confidence to succeed.
 
 ---
+
 
 

@@ -1,40 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
+{% load static %} {% extends 'base.html' %} {% block content %}
 
 <div class="container mt-4">
-    <h1 class="mb-4 custom-title">Edit Recipe: {{ form.instance.title }}</h1>
+  <h1 class="mb-4 custom-title">Edit Recipe: {{ form.instance.title }}</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        <!-- Render each form field one by one -->
-        <div class="mb-3">
-            <label for="id_title" class="form-label">Title</label>
-            {{ form.title }}
-        </div>
+  <form method="POST">
+    {% csrf_token %}
+    <!-- Render each form field one by one -->
+    <div class="mb-3">
+      <label for="id_title" class="form-label">Title</label>
+      {{ form.title }}
+    </div>
 
-        <div class="mb-3">
-            <label for="id_ingredients" class="form-label">Ingredients</label>
-            {{ form.ingredients }}
-        </div>
+    <div class="mb-3">
+      <label for="id_ingredients" class="form-label">Ingredients</label>
+      {{ form.ingredients }}
+    </div>
 
-        <div class="mb-3">
-            <label for="id_instructions" class="form-label">Instructions</label>
-            {{ form.instructions }}
-        </div>
+    <div class="mb-3">
+      <label for="id_instructions" class="form-label">Instructions</label>
+      {{ form.instructions }}
+    </div>
 
-        <div class="mb-3">
-            <label for="id_categories" class="form-label">Categories</label>
-            {{ form.categories }}
-        </div>
+    <div class="mb-3">
+      <label for="id_categories" class="form-label">Categories</label>
+      {{ form.categories }}
+    </div>
 
-        <button type="submit" class="btn btn-primary update-button">Update Recipe</button>
-    </form>
+    <button type="submit" class="btn btn-primary update-button">
+      Update Recipe
+    </button>
+  </form>
 </div>
 
 {% endblock %}
-
-
-
-
-
