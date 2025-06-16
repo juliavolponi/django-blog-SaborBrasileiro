@@ -1,0 +1,60 @@
+{% load static %} {% extends 'base.html' %} {% block content %}
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Top Left: Author, Title, and Buttons -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2>{{ recipe.title }}</h2>
+          <p class="author">By: {{ recipe.author }}</p>
+          <p class="recipe-subtitle">{{ recipe.created_at|date:"F j, Y" }}</p>
+          {% if user.is_authenticated and user == recipe.author %}
+          <a href="{% url 'recipe_update' recipe.slug %}" class="btn btn-edit"
+            >Edit</a
+          >
+          <a href="{% url 'recipe_delete' recipe.slug %}" class="btn btn-delete"
+            >Delete</a
+          >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Right: Recipe Image -->
+    <div class="col-md-6 masthead-image">
+      <div class="image-container">
+        <img
+          src="{% static 'images/default.jpg' %}"
+          class="scale"
+          alt="placeholder"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Ingredients and Instructions -->
+  <div class="row mt-4">
+    <!-- Left Bottom: Ingredients -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Ingredients</h3>
+          <p class="card-text">{{ recipe.ingredients|safe }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Bottom: How to Prepare -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">How to Prepare</h3>
+          <p class="card-text">{{ recipe.instructions|safe }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
